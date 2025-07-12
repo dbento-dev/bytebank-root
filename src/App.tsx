@@ -1,18 +1,34 @@
+import React, { Suspense } from 'react'
+import ErrorBoundary from './components/ErrorBoundary'
 import { Typography, useTheme } from '@mui/material'
-import { lazy, Suspense } from 'react'
 
-const RemoteHeader = lazy(() => import('app-header/Header'))
+const RemoteHeader = React.lazy(() => import('app-header/Header'))
+
+const HeaderFallback = () => (
+  <div
+    style={{
+      backgroundColor: '#cc0000',
+      color: 'white',
+      padding: '1rem',
+      textAlign: 'center',
+      fontFamily: 'sans-serif'
+    }}
+  >
+    O cabeçalho não está disponível no momento.
+  </div>
+)
 
 export const App = () => {
   const theme = useTheme()
-
   return (
     <>
-      <Suspense fallback={<div>Carregando header...</div>}>
-        <RemoteHeader />
-      </Suspense>
+      <ErrorBoundary fallback={<HeaderFallback />}>
+        <Suspense fallback={<div>Carregando cabeçalho...</div>}>
+          <RemoteHeader />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Typography variant="h4" color={theme.palette.secondary.dark}>
+      <Typography variant="h4" color={theme.palette.primary.light}>
         Teste de Estilo Global
       </Typography>
     </>

@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
-import { ThemeProvider } from 'utilUi/ThemeProvider'
+import ErrorBoundary from './components/ErrorBoundary'
+
+const RemoteThemeProvider = React.lazy(() => import('utilUi/ThemeProvider'))
+
+const AppWithoutTheme = () => {
+  console.warn(
+    "Falha ao carregar o ThemeProvider do MFE 'utilUi'. A aplicação será renderizada sem o tema customizado."
+  )
+  return <App />
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <ErrorBoundary fallback={<AppWithoutTheme />}>
+      <Suspense fallback={<></>}>
+        <RemoteThemeProvider>
+          <App />
+        </RemoteThemeProvider>
+      </Suspense>
+    </ErrorBoundary>
   </React.StrictMode>
 )
