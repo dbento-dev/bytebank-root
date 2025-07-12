@@ -33,9 +33,11 @@ const devConfig = {
     new ModuleFederationPlugin({
       name: 'root',
       remotes: {
-        'app-header': 'app_header@http://localhost:3001/remoteEntry.js'
+        'app-header': 'app_header@http://localhost:3001/remoteEntry.js',
+        utilUi: 'utilUi@http://localhost:8310/remoteEntry.js'
       },
       shared: {
+        ...deps,
         react: {
           singleton: true,
           requiredVersion: deps.react,
@@ -50,6 +52,22 @@ const devConfig = {
           singleton: true,
           requiredVersion: deps['react-router-dom'],
           eager: false
+        },
+        '@emotion/react': {
+          singleton: true,
+          requiredVersion: deps['@emotion/react']
+        },
+        '@emotion/styled': {
+          singleton: true,
+          requiredVersion: deps['@emotion/styled']
+        },
+        '@mui/material': {
+          singleton: true,
+          requiredVersion: deps['@mui/material']
+        },
+        '@mui/icons-material': {
+          singleton: true,
+          requiredVersion: deps['@mui/icons-material']
         }
       }
     })

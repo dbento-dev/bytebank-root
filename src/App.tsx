@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { lazy, Suspense } from 'react'
 
 const RemoteHeader = lazy(() => import('app-header/Header'))
@@ -8,7 +9,10 @@ export const App = () => {
       <Suspense fallback={<div>Carregando header...</div>}>
         <RemoteHeader />
       </Suspense>
-      <h1>APP ROOT</h1>
+
+      <Typography variant="h4" color="primary">
+        Teste de Estilo Global
+      </Typography>
     </>
   )
 }
