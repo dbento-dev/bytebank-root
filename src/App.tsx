@@ -1,6 +1,6 @@
-import { lazy, Suspense } from "react"
+import { lazy, Suspense } from 'react'
 
-const RemoteHeader = lazy(() => import("app-header/Header"))
+const RemoteHeader = lazy(() => import('app-header/Header'))
 
 export const App = () => {
   return (
