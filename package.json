@@ -2,7 +2,7 @@
   "name": "root",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.tsx",
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
