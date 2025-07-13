@@ -1,2 +1,2 @@
-declare module 'app-header/Header'
+declare module 'appHeader/Header'
 declare module 'utilUi/ThemeProvider'

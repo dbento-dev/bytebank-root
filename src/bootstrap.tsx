@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
-import { App } from './App'
 import ErrorBoundary from './components/ErrorBoundary'
+import { App } from './App'
 
 const RemoteThemeProvider = React.lazy(() => import('utilUi/ThemeProvider'))
 

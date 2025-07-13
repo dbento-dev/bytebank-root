@@ -33,7 +33,7 @@ const devConfig = {
     new ModuleFederationPlugin({
       name: 'root',
       remotes: {
-        'app-header': 'app_header@http://localhost:3001/remoteEntry.js',
+        appHeader: 'appHeader@http://localhost:3001/remoteEntry.js',
         utilUi: 'utilUi@http://localhost:8310/remoteEntry.js'
       },
       shared: {

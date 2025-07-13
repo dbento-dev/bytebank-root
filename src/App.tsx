@@ -1,36 +1,30 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, type ReactElement } from 'react'
+
 import ErrorBoundary from './components/ErrorBoundary'
-import { Typography, useTheme } from '@mui/material'
 
-const RemoteHeader = React.lazy(() => import('app-header/Header'))
+const RemoteHeader = React.lazy(() => import('appHeader/Header'))
 
-const HeaderFallback = () => (
+const LoadingFallback = (): ReactElement => <div>Carregando...</div>
+const ErrorFallback = (): ReactElement => (
   <div
     style={{
-      backgroundColor: '#cc0000',
-      color: 'white',
-      padding: '1rem',
-      textAlign: 'center',
-      fontFamily: 'sans-serif'
+      padding: '1em',
+      backgroundColor: '#ffcccb',
+      border: '1px solid red'
     }}
   >
-    O cabeçalho não está disponível no momento.
+    <p>Ops! Este recurso está temporariamente indisponível.</p>
   </div>
 )
 
 export const App = () => {
-  const theme = useTheme()
   return (
     <>
-      <ErrorBoundary fallback={<HeaderFallback />}>
-        <Suspense fallback={<div>Carregando cabeçalho...</div>}>
+      <ErrorBoundary fallback={<ErrorFallback />}>
+        <Suspense fallback={<LoadingFallback />}>
           <RemoteHeader />
         </Suspense>
       </ErrorBoundary>
-
-      <Typography variant="h4" color={theme.palette.primary.light}>
-        Teste de Estilo Global
-      </Typography>
     </>
   )
 }
