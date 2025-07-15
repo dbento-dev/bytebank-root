@@ -20,33 +20,54 @@ html {
 }
 
 body {
-  font:
-    normal 1.6rem 'Space Grotesk',
-    sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   min-height: 100vh;
 }
 
-/* Define o layout principal da aplicação */
-.layout-wrapper {
+/* Container geral com margem lateral */
+.app-container {
   width: 100%;
   max-width: 124.8rem;
   margin: 0 auto;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* Define o layout principal entre os MFEs */
-.layout-grid {
+/* Header (não fixo) */
+.app-header {
+  background-color: blue;
+}
+
+/* Conteúdo principal com grid */
+.main-content {
   display: grid;
-  grid-template-columns: 55% 45%;
-  width: 100%;
-  height: 100vh;
+  grid-template-columns: 60% 40%;
+  background-color: red;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Coluna única em telas menores */
+  }
 }
 
-/* Define altura total para os contêineres */
-/* .dashboard-container,
-.transaction-container {
-  height: 100%;
-} */
+/* Estilo base para os MFEs */
+.app-dashboard,
+.app-transactions {
+  width: 100%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.app-dashboard {
+  /* Dashboard específico */
+  background-color: green;
+}
+
+.app-transactions {
+  /* Extrato específico */
+  background-color: orange;
+}
