@@ -56,11 +56,10 @@ body {
 /* Grid principal: Dashboard e Extrato */
 .layout-main {
   display: grid;
-  grid-template-columns: 55% 45%;
-  /* gap: 2rem; */
+  grid-template-columns: calc(55% - 0.8rem) calc(45% - 0.8rem);
+  gap: 1.6rem;
   /* flex: 1; */
   /* height: 100%; */
-
   /* Permite que o grid se ajuste ao conteúdo */
   /* min-height: 0; */
   /* overflow: hidden; */
@@ -74,7 +73,7 @@ body {
 }
 
 .layout-extrato {
-  background-color: red;
+  border: 2px dashed red;
 }
 
 /* Responsividade para telas pequenas */
