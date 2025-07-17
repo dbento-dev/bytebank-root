@@ -1,8 +1,7 @@
-import React, { Suspense, type ReactElement } from 'react'
-
-import ErrorBoundary from './components/ErrorBoundary'
+import React, { ReactElement, Suspense, type } from 'react'
 
 const RemoteHeader = React.lazy(() => import('appHeader/Header'))
+const RemoteDashboard = React.lazy(() => import('appDashboard/Dashboard'))
 
 const LoadingFallback = (): ReactElement => <div>Carregando...</div>
 const ErrorFallback = (): ReactElement => (
@@ -35,7 +34,7 @@ export const App = () => {
       </Suspense>
       <main className="main-content">
         <section className="app-dashboard">
-          <>DASHBOARD</>
+          <RemoteDashboard />
         </section>
         <aside className="app-transactions">
           <>EXTRATO</>
