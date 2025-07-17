@@ -18,26 +18,22 @@ const ErrorFallback = (): ReactElement => (
 
 export const App = () => {
   return (
-    // <>
-    //   <ErrorBoundary fallback={<ErrorFallback />}>
-    //     <Suspense fallback={<LoadingFallback />}>
-    //       <RemoteHeader />
-    //     </Suspense>
-    //   </ErrorBoundary>
-    // </>
-
-    <div className="app-container">
-      <Suspense fallback={<LoadingFallback />}>
-        <header className="app-header">
+    <div className="layout-container">
+      <header className="layout-header">
+        <Suspense fallback={<LoadingFallback />}>
           <RemoteHeader />
-        </header>
-      </Suspense>
-      <main className="main-content">
-        <section className="app-dashboard">
-          <RemoteDashboard />
+        </Suspense>
+      </header>
+      <main className="layout-main">
+        <section className="layout-dashboard">
+          <Suspense fallback={<LoadingFallback />}>
+            <RemoteDashboard />
+          </Suspense>
         </section>
-        <aside className="app-transactions">
-          <>EXTRATO</>
+        <aside className="layout-extrato">
+          <Suspense fallback={<LoadingFallback />}>
+            <>EXTRATO</>
+          </Suspense>
         </aside>
       </main>
     </div>
