@@ -34,6 +34,7 @@ const devConfig = {
       name: 'root',
       remotes: {
         appHeader: 'appHeader@http://localhost:3001/remoteEntry.js',
+        appDashboard: 'appDashboard@http://localhost:3002/remoteEntry.js',
         utilUi: 'utilUi@http://localhost:8310/remoteEntry.js'
       },
       shared: {
