@@ -73,10 +73,6 @@ body {
   height: 100%;
 }
 
-.layout-extrato {
-  border: 2px dashed red;
-}
-
 /* Responsividade para telas pequenas */
 @media (max-width: 768px) {
   .layout-main {

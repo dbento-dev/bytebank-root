@@ -1,7 +1,10 @@
-import React, { ReactElement, Suspense, type } from 'react'
+import React, { ReactElement, Suspense } from 'react'
 
 const RemoteHeader = React.lazy(() => import('appHeader/Header'))
 const RemoteDashboard = React.lazy(() => import('appDashboard/Dashboard'))
+const RemoteTransactions = React.lazy(
+  () => import('appTransactions/Transactions')
+)
 
 const LoadingFallback = (): ReactElement => <div>Carregando...</div>
 const ErrorFallback = (): ReactElement => (
@@ -32,7 +35,7 @@ export const App = () => {
         </section>
         <aside className="layout-extrato">
           <Suspense fallback={<LoadingFallback />}>
-            <>EXTRATO</>
+            <RemoteTransactions />
           </Suspense>
         </aside>
       </main>
