@@ -70,6 +70,10 @@ const devConfig = {
         '@mui/icons-material': {
           singleton: true,
           requiredVersion: deps['@mui/icons-material']
+        },
+        axios: {
+          singleton: true,
+          requiredVersion: deps['axios']
         }
       }
     })
