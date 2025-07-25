@@ -36,7 +36,9 @@ const devConfig = {
         appHeader: 'appHeader@http://localhost:3001/remoteEntry.js',
         appDashboard: 'appDashboard@http://localhost:3002/remoteEntry.js',
         appTransactions: 'appTransactions@http://localhost:3003/remoteEntry.js',
-        utilUi: 'utilUi@http://localhost:8310/remoteEntry.js'
+        utilUi: 'utilUi@http://localhost:8310/remoteEntry.js',
+        utilApi: 'utilApi@http://localhost:8311/remoteEntry.js',
+        utilStore: 'utilStore@http://localhost:8312/remoteEntry.js'
       },
       shared: {
         ...deps,
@@ -74,7 +76,8 @@ const devConfig = {
         axios: {
           singleton: true,
           requiredVersion: deps['axios']
-        }
+        },
+        zustand: { singleton: true, requiredVersion: deps.zustand }
       }
     })
   ]
