@@ -1,8 +1,9 @@
 const { ModuleFederationPlugin } = require('webpack').container
 const { merge } = require('webpack-merge')
-const commonConfig = require('./webpack.common')()
+const commonConfig = require('./webpack.common')
 const deps = require('../package.json').dependencies
 const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
 const prodConfig = {
   mode: 'production',
@@ -17,16 +18,12 @@ const prodConfig = {
       name: 'root',
       filename: 'remoteEntry.js',
       remotes: {
-        appHeader:
-          'appHeader@https://bytebank-app-header.vercel.app/remoteEntry.js',
-        appDashboard:
-          'appDashboard@https://bytebank-app-dashboard.vercel.app/remoteEntry.js',
-        appTransactions:
-          'appTransactions@https://bytebank-app-transactions.vercel.app/remoteEntry.js',
-        utilUi: 'utilUi@https://bytebank-util-ui.vercel.app/remoteEntry.js',
-        utilApi: 'utilApi@https://bytebank-util-api.vercel.app/remoteEntry.js',
-        utilStore:
-          'utilStore@https://bytebank-util-store.vercel.app/remoteEntry.js'
+        appHeader: `appHeader@${process.env.APP_HEADER_URL}/remoteEntry.js`,
+        appDashboard: `appDashboard@${process.env.APP_DASHBOARD_URL}/remoteEntry.js`,
+        appTransactions: `appTransactions@${process.env.APP_TRANSACTIONS_URL}/remoteEntry.js`,
+        utilUi: `utilUi@${process.env.UTIL_UI_URL}/remoteEntry.js`,
+        utilApi: `utilApi@${process.env.UTIL_API_URL}/remoteEntry.js`,
+        utilStore: `utilStore@${process.env.UTIL_STORE_URL}/remoteEntry.js`
       },
       shared: {
         ...deps,
@@ -54,7 +51,7 @@ const prodConfig = {
         },
         axios: {
           singleton: true,
-          requiredVersion: deps['axios']
+          requiredVersion: deps.axios
         },
         zustand: { singleton: true, requiredVersion: deps.zustand }
       }

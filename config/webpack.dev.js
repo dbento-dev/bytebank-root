@@ -1,7 +1,6 @@
 const { ModuleFederationPlugin } = require('webpack').container
 const { merge } = require('webpack-merge')
-const commonConfig = require('./webpack.common')()
-
+const commonConfig = require('./webpack.common')
 const deps = require('../package.json').dependencies
 
 const devConfig = {
@@ -9,7 +8,6 @@ const devConfig = {
   output: {
     publicPath: 'http://localhost:3000/',
     filename: '[name].js'
-    // clean: true,
   },
 
   devServer: {
@@ -21,10 +19,6 @@ const devConfig = {
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
-    // static: {
-    //   directory: path.join(__dirname, "../dist"),
-    // },
-    // compress: true,
     open: true
   },
 
@@ -74,7 +68,7 @@ const devConfig = {
         },
         axios: {
           singleton: true,
-          requiredVersion: deps['axios']
+          requiredVersion: deps.axios
         },
         zustand: { singleton: true, requiredVersion: deps.zustand }
       }
