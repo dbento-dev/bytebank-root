@@ -6,7 +6,6 @@ const deps = require('../package.json').dependencies
 
 const devConfig = {
   mode: 'development',
-
   output: {
     publicPath: 'http://localhost:3000/',
     filename: '[name].js'
