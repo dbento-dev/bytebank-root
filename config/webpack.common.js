@@ -5,7 +5,7 @@ const dotenv = require('dotenv')
 const fs = require('fs')
 
 module.exports = () => {
-  const currentEnv = process.env.NODE_ENV || 'development'
+  const currentEnv = process.env.REACT_APP_BUILD_ENV || 'development'
   const basePath = path.resolve(__dirname, `../.env.${currentEnv}`)
 
   const envFile = fs.existsSync(basePath)
