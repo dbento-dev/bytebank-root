@@ -46,8 +46,7 @@ const devConfig = {
         },
         'react-router-dom': {
           singleton: true,
-          requiredVersion: deps['react-router-dom'],
-          eager: false
+          requiredVersion: deps['react-router-dom']
         },
         '@emotion/react': {
           singleton: true,
@@ -69,7 +68,8 @@ const devConfig = {
           singleton: true,
           requiredVersion: deps.axios
         },
-        zustand: { singleton: true, requiredVersion: deps.zustand }
+        zustand: { singleton: true, requiredVersion: deps.zustand },
+        history: { singleton: true, requiredVersion: deps.history }
       }
     })
   ]
