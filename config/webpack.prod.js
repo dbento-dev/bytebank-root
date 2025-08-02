@@ -3,7 +3,8 @@ const { merge } = require('webpack-merge')
 const commonConfig = require('./webpack.common')
 const deps = require('../package.json').dependencies
 const path = require('path')
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
+const { DefinePlugin } = require('webpack')
+const { getEnvVars } = require('./getEnvVars')
 
 const prodConfig = {
   mode: 'production',
@@ -14,16 +15,17 @@ const prodConfig = {
     clean: true
   },
   plugins: [
+    new DefinePlugin(getEnvVars()),
     new ModuleFederationPlugin({
       name: 'root',
       filename: 'remoteEntry.js',
       remotes: {
-        appHeader: `appHeader@${process.env.APP_HEADER_URL}/remoteEntry.js`,
-        appDashboard: `appDashboard@${process.env.APP_DASHBOARD_URL}/remoteEntry.js`,
-        appTransactions: `appTransactions@${process.env.APP_TRANSACTIONS_URL}/remoteEntry.js`,
-        utilUi: `utilUi@${process.env.UTIL_UI_URL}/remoteEntry.js`,
-        utilApi: `utilApi@${process.env.UTIL_API_URL}/remoteEntry.js`,
-        utilStore: `utilStore@${process.env.UTIL_STORE_URL}/remoteEntry.js`
+        appHeader: `appHeader@${process.env.REACT_APP_APP_HEADER_URL}/remoteEntry.js`,
+        appDashboard: `appDashboard@${process.env.REACT_APP_APP_DASHBOARD_URL}/remoteEntry.js`,
+        appTransactions: `appTransactions@${process.env.REACT_APP_APP_TRANSACTIONS_URL}/remoteEntry.js`,
+        utilUi: `utilUi@${process.env.REACT_APP_UTIL_UI_URL}/remoteEntry.js`,
+        utilApi: `utilApi@${process.env.REACT_APP_UTIL_API_URL}/remoteEntry.js`,
+        utilStore: `utilStore@${process.env.REACT_APP_UTIL_STORE_URL}/remoteEntry.js`
       },
       shared: {
         ...deps,
