@@ -1,7 +1,8 @@
-import './styles/style.css'
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
+import './styles/style.css'
 // import ErrorBoundary from './components/ErrorBoundary'
+import { ToastContainer } from 'react-toastify'
 import { App } from './App'
 
 const RemoteThemeProvider = React.lazy(() => import('utilUi/ThemeProvider'))
@@ -18,6 +19,18 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     {/* <ErrorBoundary fallback={<AppWithoutTheme />}> */}
     <Suspense fallback={<></>}>
       <RemoteThemeProvider>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <App />
       </RemoteThemeProvider>
     </Suspense>
