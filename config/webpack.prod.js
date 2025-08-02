@@ -53,7 +53,11 @@ const prodConfig = {
           singleton: true,
           requiredVersion: deps.axios
         },
-        zustand: { singleton: true, requiredVersion: deps.zustand }
+        zustand: { singleton: true, requiredVersion: deps.zustand },
+        'react-toastify': {
+          singleton: true,
+          requiredVersion: deps['react-toastify']
+        }
       }
     })
   ]
