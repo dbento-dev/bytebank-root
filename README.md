@@ -49,6 +49,17 @@ O layout é definido no `root` e organiza os micro-frontends em uma estrutura co
 +--------------------------------+-----------------+
 ```
 
+:computer: WEB Layout
+
+<img width="502" height="745" alt="image" src="https://github.com/user-attachments/assets/f2dcbb9e-0399-4455-b0fe-61f9b227c180" />
+
+---
+
+📱 MOBILE Layout
+
+<img width="190" height="860" alt="image" src="https://github.com/user-attachments/assets/00b378a5-e814-4dd6-9f85-f72a76b8399c" />
+
+
 ---
 
 ### 🛠️ Tecnologias
