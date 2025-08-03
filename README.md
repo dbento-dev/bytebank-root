@@ -22,6 +22,8 @@ O **Root App** é a base da aplicação Bytebank. Ele é responsável por:
 
 Ele consome os módulos federados expostos pelos outros micro-frontends e garante que dependências compartilhadas (como React, Material-UI e Zustand) sejam instanciadas como singletons, otimizando o desempenho e a consistência.
 
+**Versão de produção:** **[bytebank](https://bytebank-tc2.vercel.app/)**
+
 ---
 
 ### ✔️ Funcionalidades
@@ -58,7 +60,6 @@ O layout é definido no `root` e organiza os micro-frontends em uma estrutura co
 📱 MOBILE Layout
 
 <img width="190" height="860" alt="image" src="https://github.com/user-attachments/assets/00b378a5-e814-4dd6-9f85-f72a76b8399c" />
-
 
 ---
 
